@@ -1,5 +1,5 @@
-// Name:
-// Class:
+// Name: Fatih Erik
+// Class: 27
 
 // JavaScript1
 
@@ -13,6 +13,25 @@
     Expected output:
     'Noer is 28 and works as an Education Director'
 */
+const newObj = {
+    name: "Noer",
+    age: 28,
+    job: "Education Director"
+  }
+  
+  const logObj = (obj) => {
+       
+    let result = [];
+  
+    for (const property in obj) {
+  
+      result.push(obj[property])
+    }
+    console.log(result[0] + " is" +" "+ result[1] +" "+ "and works" + " " + "as an" + " "+ result[2]);
+  };
+  
+  logObj(newObj);
+ 
 
 /* 2. Create a function, named logNumbers, that:
       - Takes 2 arguments: a start number and an end number
@@ -38,6 +57,21 @@
 
       Use the following values: 1 (start number) and 100 (end number)
 */
+function fizzBuzz(startNumber,endNumber) {
+    for (let i = startNumber; i <= endNumber; i++) {
+
+       if (i % 3 === 0 && i % 5 === 0) {
+        console.log('FizzBuzz');
+       } else if (i % 5 === 0) {
+        console.log('Buzz');
+      } else if (i % 3 == 0) {
+        console.log('Fizz');
+       } else {
+        console.log(i);
+      }
+     }  
+  }
+  console.log(fizzBuzz(1,100));
 
 // JavaScript2
 
@@ -54,6 +88,14 @@
 
       Use the following array: const letters = ['a', 'b', 'c', 'd'];
 */
+
+const toNumbers = (arg) => {
+    let result = arg.map(el => arg.indexOf(el));
+    console.log(result);
+    return result;
+  }
+  
+  toNumbers(['a', 'b', 'c', 'd']);
 
 /* 4. Create a function, called injectBooksToDOM, that:
       - Takes 1 argument: an array of objects
@@ -79,6 +121,39 @@
             }
       ];
 */
+
+function injectBooksToDOM(arr) {
+    const ul = document.createElement('ul');
+    document.body.appendChild(ul);
+  
+    arr.forEach(element => {
+      const li = document.createElement('li');
+      li.innerText = element;
+      ul.appendChild(li);
+    });
+
+    return ul;
+    }
+    
+  }
+  const books = [
+    {
+          bookName: "The Nature of Software Development",
+          author: "Ron Jeffries",
+          coverURL:
+                "https://cdn-images-1.medium.com/max/1200/1*CQRh-pFTZ97ReXogbefleQ.png"
+    },
+    {
+          bookName: "Clean Code",
+          author: "Robert Cecil Martin",
+          coverURL:
+                "https://images-na.ssl-images-amazon.com/images/I/515iEcDr1GL._SX258_BO1,204,203,200_.jpg"
+    }
+]
+    let ulElement = injectBooksToDOM(books);
+
+    document.querySelector('#root').appendChild(ulElement);
+
 
 /*
 5. What's the output for this snippet? Is the output deterministic (always the same) or might it depend on the browser
